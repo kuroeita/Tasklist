@@ -10,22 +10,49 @@ import UIKit
 
 class ToDoTableViewController: UITableViewController {
     
+    let  userDefaults = UserDefaults.standard
+    //UserDefaultsはデータを保存しておく処理
+    //色々呼ばれるから先にインスタンスを取得しておく
+    
     var todos = [String]()
 
     @IBAction func rewindTitle(sender: UIStoryboardSegue) {
         //saveを押してセグエを巻き戻す際に実行されるメソッド
         guard let previousTitle = sender.source as? ToDoTableViewController, let todo = previousTitle.title else {
+            //遷移元の画面を取得
             //prepareから渡ってくるtitle.textを取得する
             return
         }
-        self.todos.append(title)
-        //条件を通った場合、titleから割ったてきた値をtodosに入れる
+        if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+            //saveを押して戻ってきた時にセルが選択されているかどうかで条件分岐
+            //選択されているかどうかは、tableView.indexPathForSelectedRowがnilでないかでわかる
+            self.todos[selectedIndexPath.row] = todo
+            //選択されていた場合の処理
+            //選択されたセルを新しいデータに変更
+        } else {
+            self.todos.append(todo)
+            //選択されていなかった場合の処理
+            //titleから渡ってきた値をtodosに入れる
+        }
+        self.userDefaults.set(self.todos, forKey: "todos")
+        //データが変わったところでUserDefaultsを更新する処理
         self.tableView.reloadData()
+        //tableView を再読み込み
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.userDefaults.object(forKey: "todos") != nil {
+            //UserDefaults ではキーと値でデータを保存するため、キーを設定
+            self.todos = self.userDefaults.stringArray(forKey: "todos")!
+            //データが UserDefaults に保存されていたら呼び出す処理
+        } else {
+            self.todos = ["todo1"]
+            //保存されていなかったら初期値を表示
+        }
 
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -72,18 +99,22 @@ class ToDoTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //スワイプして削除ボタンが出るようになるメソッド
         if editingStyle == .delete {
             // Delete the row from the data source
+            self.todos.remove(at: indexPath.row)
+            self.userDefaults.set(self.todos, forKey: "todos")
+            //データが変わったところでUserDefaultsを更新する処理
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            //該当する行を TableView から消す(初めからある)
+        }
     }
-    */
 
+    
+    
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -99,14 +130,31 @@ class ToDoTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //タップされた行のcellを遷移先の画面に渡す
+        //segue で遷移する前に呼ばれる prepare メソッドを使用
+        guard let identifier = segue.identifier else {
+            //guardでsegueのidenteifierをセット
+            return
+            //セットできなかった場合は処理を止める
+        }
+        if identifier == "editTodo" {
+            let todoTB = segue.destination as! AddController
+            //セットできた場合、 identifier が editTodo かどうかをチェック
+            //editTodo の場合は遷移先の ViewController を取得
+            //キャストの意味がわからない
+
+            todoTB.taitle = self.todos[(self.tableView.indexPathForSelectedRow?.row)!]
+            // プロパティに選択されている行の todo を入れる処理
+            //=addController のviewDidLoad で値を受け取る
+        }
+        
+        
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }
