@@ -78,7 +78,8 @@ class AddController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //saveボタンを押した時の準備
         //segueによる遷移が行われる前に実行される prepare メソッド
-        guard let button = sender as? UIBarButtonItem, button === self.saveButton else {
+        guard let button = sender as? UIBarButtonItem, button === self.saveButton
+            else {
             return
         }
         self.taitle = self.todoTitle.text ?? ""
