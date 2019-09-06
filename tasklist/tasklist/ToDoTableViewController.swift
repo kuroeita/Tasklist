@@ -8,36 +8,39 @@
 
 import UIKit
 
-class ToDoTableViewController: UITableViewController {
+class ToDoTableViewController: UITableViewController, AddControllerDelegate {
     
     let  userDefaults = UserDefaults.standard
     //UserDefaultsはデータを保存しておく処理
     //色々呼ばれるから先にインスタンスを取得しておく
     
     var todos = [String]()
-
+    func todoSaved(todo: String) {
+        todos.append(todo)
+        tableView.reloadData()
+    }
     @IBAction func rewindTitle(sender: UIStoryboardSegue) {
         //saveを押してセグエを巻き戻す際に実行されるメソッド
-        guard let previousTitle = sender.source as? ToDoTableViewController, let todo = previousTitle.title else {
+        guard let previousTitle = sender.source as? AddController, let todo = previousTitle.taitle else {
             //遷移元の画面を取得
             //prepareから渡ってくるtitle.textを取得する
             return
         }
-        if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
-            //saveを押して戻ってきた時にセルが選択されているかどうかで条件分岐
-            //選択されているかどうかは、tableView.indexPathForSelectedRowがnilでないかでわかる
-            self.todos[selectedIndexPath.row] = todo
-            //選択されていた場合の処理
-            //選択されたセルを新しいデータに変更
-        } else {
-            self.todos.append(todo)
-            //選択されていなかった場合の処理
-            //titleから渡ってきた値をtodosに入れる
-        }
-        self.userDefaults.set(self.todos, forKey: "todos")
-        //データが変わったところでUserDefaultsを更新する処理
-        self.tableView.reloadData()
-        //tableView を再読み込み
+//        if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+//            //saveを押して戻ってきた時にセルが選択されているかどうかで条件分岐
+//            //選択されているかどうかは、tableView.indexPathForSelectedRowがnilでないかでわかる
+//            self.todos[selectedIndexPath.row] = todo
+//            //選択されていた場合の処理
+//            //選択されたセルを新しいデータに変更
+//        } else {
+//            self.todos.append(todo)
+//            //選択されていなかった場合の処理
+//            //titleから渡ってきた値をtodosに入れる
+//        }
+//        self.userDefaults.set(self.todos, forKey: "todos")
+//        //データが変わったところでUserDefaultsを更新する処理
+//        self.tableView.reloadData()
+//        //tableView を再読み込み
     }
     
     override func viewDidLoad() {
@@ -146,7 +149,7 @@ class ToDoTableViewController: UITableViewController {
             //セットできた場合、 identifier が editTodo かどうかをチェック
             //editTodo の場合は遷移先の ViewController を取得
             //キャストの意味がわからない
-
+            todoTB.delegate = self as! AddControllerDelegate
             todoTB.taitle = self.todos[(self.tableView.indexPathForSelectedRow?.row)!]
             // プロパティに選択されている行の todo を入れる処理
             //=addController のviewDidLoad で値を受け取る

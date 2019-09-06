@@ -7,11 +7,19 @@
 //
 
 import UIKit
+protocol A {
+    func hoge()
+    func piyo()
+}
+
+protocol AddControllerDelegate: class {
+    func todoSaved(todo: String)
+}
 
 class AddController: UIViewController {
     
     var taitle: String?
-
+    weak var delegate: AddControllerDelegate?
     
     @IBOutlet weak var todoTitle: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -76,14 +84,8 @@ class AddController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //saveボタンを押した時の準備
-        //segueによる遷移が行われる前に実行される prepare メソッド
-        guard let button = sender as? UIBarButtonItem, button === self.saveButton
-            else {
-            return
-        }
-        self.taitle = self.todoTitle.text ?? ""
-        //チェックがOKだった箇所の処理
+        let todo = todoTitle.text ?? ""
+        delegate?.todoSaved(todo: todo)
     }
     
 
