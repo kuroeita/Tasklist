@@ -8,12 +8,20 @@
 
 import UIKit
 
+class ToDoInformation {
+    var inTitle: String
+    var inDetail: String
+
+    init(_ title: String, _ detail: String) {
+        self.inTitle = title
+        self.inDetail = detail
+    }
+}
+
 class AddController: UIViewController {
     
-    var taitle: String?
-    var detail: String?
     //詳細の実装のため追加
-
+    var todo: ToDoInformation?
     
     @IBOutlet weak var todoTitle: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -28,21 +36,19 @@ class AddController: UIViewController {
 //        self.saveButton.isEnabled = false
 //        //文字が入力されるまでSave ボタンを無効←privateメソッドで書く
         
-        if let edittitle = self.taitle {
+        if let todo = self.todo {
             //prepare メソッドから値が渡されていたら taitle に値がセットされている
-            self.todoTitle.text = edittitle
+            self.todoTitle.text = todo.inTitle
             //値がセットされていたらedittitleに値を渡す
             self.navigationItem.title = "Details"
             //値がセットされていたらタイトルを変更
             //ボタンも変更したい
-        }
-        //TextField の値を設定した後に呼ぶ
+            self.todoDetails.text = todo.inDetail
 
-        if let editdetails = self.detail {
-            self.todoDetails.text = editdetails
-            //詳細の実装
         }
+
         self.saveButtinState()
+        //TextField の値を設定した後に呼ぶ
     }
     
    
@@ -80,8 +86,6 @@ class AddController: UIViewController {
     }
     
     
-    
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -92,9 +96,10 @@ class AddController: UIViewController {
             else {
             return
         }
-        self.taitle = self.todoTitle.text ?? ""
-        //チェックがOKだった箇所の処理
-        self.detail = self.todoDetails.text ?? ""
+        todo = ToDoInformation(todoTitle.text ?? "", todoDetails.text ?? "")
+//        self.taitle = self.todoTitle.text ?? ""
+//        //チェックがOKだった箇所の処理
+//        self.detail = self.todoDetails.text ?? ""
         //詳細の実装のため追加
 
     }

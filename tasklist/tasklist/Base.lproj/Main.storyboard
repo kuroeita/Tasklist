@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Controller-->
+        <!--Add ToDo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="AddController" customModule="tasklist" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,9 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xbD-06-P5L">
-                                <rect key="frame" x="115" y="217" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vGQ-WA-BIY">
+                                <rect key="frame" x="30" y="194" width="315" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Z6P-Jq-Swq"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xbD-06-P5L">
+                                <rect key="frame" x="30" y="114" width="315" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="gdN-d1-qLE"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -28,25 +39,27 @@
                                     <action selector="titleTextFieldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="qDi-ZG-DTt"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vGQ-WA-BIY">
-                                <rect key="frame" x="160" y="411" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vGQ-WA-BIY" firstAttribute="top" secondItem="xbD-06-P5L" secondAttribute="bottom" constant="50" id="5Nn-kA-Klu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vGQ-WA-BIY" secondAttribute="trailing" constant="30" id="KK3-di-djR"/>
+                            <constraint firstItem="xbD-06-P5L" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="XpQ-zs-OCr"/>
+                            <constraint firstItem="vGQ-WA-BIY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="mu2-mU-9OO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xbD-06-P5L" secondAttribute="trailing" constant="30" id="ngh-zh-lmN"/>
+                            <constraint firstItem="xbD-06-P5L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r2U-uu-vtc"/>
+                            <constraint firstItem="xbD-06-P5L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="umP-b3-5m9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="xYk-5P-5c7">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="V6a-tc-xmb">
+                    <navigationItem key="navigationItem" title="Add ToDo" id="xYk-5P-5c7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="V6a-tc-xmb">
                             <connections>
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="yOI-Jw-4hA"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="UA3-6d-Tut">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="UA3-6d-Tut">
                             <connections>
                                 <segue destination="7wI-IQ-Eek" kind="unwind" unwindAction="rewindTitleWithSender:" id="YIc-UT-pH1"/>
                             </connections>
@@ -62,7 +75,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="7wI-IQ-Eek" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="735" y="-205"/>
+            <point key="canvasLocation" x="733.60000000000002" y="-205.54722638680661"/>
         </scene>
         <!--To Do Table View Controller-->
         <scene sceneID="OTC-4K-9vX">
@@ -73,15 +86,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoCell" id="LtK-Af-3Vm">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="todoCell" textLabel="eVT-Hq-kVi" detailTextLabel="QWw-AL-a9D" style="IBUITableViewCellStyleSubtitle" id="LtK-Af-3Vm">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LtK-Af-3Vm" id="Ug0-0N-J23">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eVT-Hq-kVi">
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QWw-AL-a9D">
+                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="EkS-lC-bGv"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="editTodo" id="EkS-lC-bGv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -91,7 +120,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="WJe-9f-fJT">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="dAE-77-oa0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dAE-77-oa0">
                             <connections>
                                 <segue destination="OsJ-V2-6IY" kind="presentation" identifier="addTodo" id="wI7-ZW-LeZ"/>
                             </connections>
@@ -140,6 +169,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="70U-Ug-IJn"/>
+        <segue reference="EkS-lC-bGv"/>
     </inferredMetricsTieBreakers>
 </document>

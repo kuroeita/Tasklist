@@ -8,18 +8,21 @@
 
 import UIKit
 
+
 class ToDoTableViewController: UITableViewController {
     
-    let  userDefaults = UserDefaults.standard
-    //UserDefaultsはデータを保存しておく処理
-    //色々呼ばれるから先にインスタンスを取得しておく
     
-    var todos = [String]()
-    var details = [String]()
+//    var todos = [String]()
+//    var details = [String]()
+//    var allsTodo = [ToDoInformation]()
+    var allToDo: [ToDoInformation] = []
+    
+//    var details = [String]()
+    
 
     @IBAction func rewindTitle(sender: UIStoryboardSegue) {
         //saveを押してセグエを巻き戻す際に実行されるメソッド
-        guard let previousTitle = sender.source as? AddController, let todo = previousTitle.taitle else {
+        guard let previousTitle = sender.source as? AddController, let todo = previousTitle.todo else {
             //遷移元の画面を取得
             //prepareから渡ってくるtitle.textを取得する
             return
@@ -27,28 +30,20 @@ class ToDoTableViewController: UITableViewController {
         if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
             //saveを押して戻ってきた時にセルが選択されているかどうかで条件分岐
             //選択されているかどうかは、tableView.indexPathForSelectedRowがnilでないかでわかる
-            self.todos[selectedIndexPath.row] = todo
+            self.allToDo[selectedIndexPath.row] = todo
+            
             //選択されていた場合の処理
             //選択されたセルを新しいデータに変更
 
         } else {
-            self.todos.append(todo)
+            self.allToDo.append(todo)
             //選択されていなかった場合の処理
             //titleから渡ってきた値をtodosに入れる
         }
-        self.userDefaults.set(self.todos, forKey: "todos")
+//        self.userDefaults.set(self.todos, forKey: "todos")
         //データが変わったところでUserDefaultsを更新する処理
 
-        let previousDetail = sender.source as? AddController
-        let hiddendetail = previousDetail?.detail
 
-        if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
-            self.details[selectedIndexPath.row] = hiddendetail ?? ""
-        } else {
-            self.details.append(hiddendetail ?? "")
-        }
-
-        self.userDefaults.set(self.details, forKey: "details")
         //詳細の実装
         
         self.tableView.reloadData()
@@ -60,32 +55,7 @@ class ToDoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.userDefaults.object(forKey: "todos") != nil {
-            //UserDefaults ではキーと値でデータを保存するため、キーを設定
-            self.todos = self.userDefaults.stringArray(forKey: "todos")!
-            //データが UserDefaults に保存されていたら呼び出す処理
-            
-        } else {
-            self.todos = ["todo1"]
-            //保存されていなかったら初期値を表示
-            
-        }
-        if self.userDefaults.object(forKey: "details") != nil {
-            self.details = self.userDefaults.stringArray(forKey: "details")!
-            //詳細の実装
-
-
-        }
-
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    // MARK: - Table view data source
 
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -97,7 +67,7 @@ class ToDoTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.todos.count
+        return allToDo.count
         //何行か行数を返す
     }
 
@@ -109,7 +79,9 @@ class ToDoTableViewController: UITableViewController {
         //リストの行である Cell を作ってそれを返す処理
 
         // Configure the cell...
-        cell.textLabel?.text = self.todos[indexPath.row]
+        let todo = allToDo[indexPath.row]
+        cell.textLabel?.text = todo.inTitle
+        cell.detailTextLabel?.text = todo.inDetail
         //Cell が何行目かに応じてメモの値を表示>indexPathh型
         return cell
         
@@ -129,12 +101,7 @@ class ToDoTableViewController: UITableViewController {
         //スワイプして削除ボタンが出るようになるメソッド
         if editingStyle == .delete {
             // Delete the row from the data source
-            self.todos.remove(at: indexPath.row)
-            self.userDefaults.set(self.todos, forKey: "todos")
-            //データが変わったところでUserDefaultsを更新する処理
-
-            self.userDefaults.set(self.details, forKey: "details")
-            //詳細の実装
+            self.allToDo.remove(at: indexPath.row)
             
             tableView.deleteRows(at: [indexPath], with: .fade)
             //該当する行を TableView から消す(初めからある)
@@ -175,17 +142,18 @@ class ToDoTableViewController: UITableViewController {
             //セットできた場合、 identifier が editTodo かどうかをチェック
             //editTodo の場合は遷移先の ViewController を取得
             //キャストの意味がわからない
-
-            todoTB.taitle = self.todos[(self.tableView.indexPathForSelectedRow?.row)!]
+            
+            let todo = allToDo[(tableView.indexPathForSelectedRow?.row)!]
+            todoTB.todo = todo
+//            todoTB.taitle = self.todos[(self.tableView.indexPathForSelectedRow?.row)!]
             // プロパティに選択されている行の todo を入れる処理
             //=addController のviewDidLoad で値を受け取る
             
-            let lorddetails = UserDefaults.standard.object(forKey: "details")
-            todoTB.detail = lorddetails as? String
+//            let lorddetails = UserDefaults.standard.object(forKey: "details")
+//            todoTB.detail = details[(self.tableView.indexPathForSelectedRow?.row)!]
             //詳細の実装
             
         }
-
         
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
