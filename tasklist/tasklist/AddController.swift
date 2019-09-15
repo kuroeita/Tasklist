@@ -11,10 +11,12 @@ import UIKit
 class ToDoInformation {
     var inTitle: String
     var inDetail: String
+    var inCalendar: String
 
-    init(_ title: String, _ detail: String) {
+    init(_ title: String, _ detail: String, _ calendar: String) {
         self.inTitle = title
         self.inDetail = detail
+        self.inCalendar = calendar
     }
 }
 
@@ -22,12 +24,14 @@ class AddController: UIViewController {
     
     //詳細の実装のため追加
     var todo: ToDoInformation?
+     var calender: UIDatePicker = UIDatePicker()
+    
     
     @IBOutlet weak var todoTitle: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     //なぜアクション接続でなかったのか不明
     @IBOutlet weak var todoDetails: UITextField!
-    //詳細の実装のため追加
+    @IBOutlet weak var calendarField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,13 +48,35 @@ class AddController: UIViewController {
             //値がセットされていたらタイトルを変更
             //ボタンも変更したい
             self.todoDetails.text = todo.inDetail
+            self.calendarField.text = todo.inCalendar
 
         }
 
         self.saveButtinState()
         //TextField の値を設定した後に呼ぶ
+        
+        calender.datePickerMode = UIDatePicker.Mode.date
+        calender.timeZone = NSTimeZone.local
+        calender.locale = Locale.current
+        calendarField.inputView = calender
+        
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        toolbar.setItems([spacelItem, doneItem], animated: true)
+        
+        calendarField.inputView = calender
+        calendarField.inputAccessoryView = toolbar
+        //カレンダー
     }
     
+    @objc func done() {
+        calendarField.endEditing(true)
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        calendarField.text = "\(formatter.string(from: calender.date))"
+    }
    
     private func saveButtinState() {
         //saveButtonの中身がなかった時に無効にする処理
@@ -96,7 +122,7 @@ class AddController: UIViewController {
             else {
             return
         }
-        todo = ToDoInformation(todoTitle.text ?? "", todoDetails.text ?? "")
+        todo = ToDoInformation(todoTitle.text ?? "", todoDetails.text ?? "", calendarField.text ?? "")
 //        self.taitle = self.todoTitle.text ?? ""
 //        //チェックがOKだった箇所の処理
 //        self.detail = self.todoDetails.text ?? ""

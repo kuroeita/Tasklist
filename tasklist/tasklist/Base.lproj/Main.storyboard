@@ -19,9 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vGQ-WA-BIY">
-                                <rect key="frame" x="30" y="194" width="315" height="300"/>
+                                <rect key="frame" x="30" y="194" width="315" height="83"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="Z6P-Jq-Swq"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="83" id="NbV-eo-DmO"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="epr-SX-PXN"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -39,12 +40,22 @@
                                     <action selector="titleTextFieldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="qDi-ZG-DTt"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WKu-ZM-lAE">
+                                <rect key="frame" x="50" y="317" width="275" height="22"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="WKu-ZM-lAE" firstAttribute="top" secondItem="vGQ-WA-BIY" secondAttribute="bottom" constant="40" id="2dU-X1-SKH"/>
                             <constraint firstItem="vGQ-WA-BIY" firstAttribute="top" secondItem="xbD-06-P5L" secondAttribute="bottom" constant="50" id="5Nn-kA-Klu"/>
+                            <constraint firstItem="WKu-ZM-lAE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G0W-xa-lUy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vGQ-WA-BIY" secondAttribute="trailing" constant="30" id="KK3-di-djR"/>
                             <constraint firstItem="xbD-06-P5L" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="XpQ-zs-OCr"/>
+                            <constraint firstItem="WKu-ZM-lAE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Z9C-d4-fLA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WKu-ZM-lAE" secondAttribute="trailing" constant="50" id="jJr-xd-Omi"/>
                             <constraint firstItem="vGQ-WA-BIY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="mu2-mU-9OO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xbD-06-P5L" secondAttribute="trailing" constant="30" id="ngh-zh-lmN"/>
                             <constraint firstItem="xbD-06-P5L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r2U-uu-vtc"/>
@@ -67,6 +78,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="calendarField" destination="WKu-ZM-lAE" id="z3q-N6-QNj"/>
                         <outlet property="saveButton" destination="UA3-6d-Tut" id="Zyv-dJ-jOb"/>
                         <outlet property="todoDetails" destination="vGQ-WA-BIY" id="5IZ-vL-Qzg"/>
                         <outlet property="todoTitle" destination="xbD-06-P5L" id="wef-g4-jSz"/>

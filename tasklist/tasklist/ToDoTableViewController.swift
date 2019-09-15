@@ -82,6 +82,7 @@ class ToDoTableViewController: UITableViewController {
         let todo = allToDo[indexPath.row]
         cell.textLabel?.text = todo.inTitle
         cell.detailTextLabel?.text = todo.inDetail
+        
         //Cell が何行目かに応じてメモの値を表示>indexPathh型
         return cell
         
