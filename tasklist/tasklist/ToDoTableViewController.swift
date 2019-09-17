@@ -19,6 +19,7 @@ class ToDoTableViewController: UITableViewController {
     
 //    var details = [String]()
     
+    
 
     @IBAction func rewindTitle(sender: UIStoryboardSegue) {
         //saveを押してセグエを巻き戻す際に実行されるメソッド
@@ -44,8 +45,9 @@ class ToDoTableViewController: UITableViewController {
         //データが変わったところでUserDefaultsを更新する処理
 
 
-        //詳細の実装
-        
+        allToDo.sort{$0.inCalendar < $1.inCalendar}
+        //ソート
+
         self.tableView.reloadData()
         //tableView を再読み込み
 
@@ -82,8 +84,8 @@ class ToDoTableViewController: UITableViewController {
         let todo = allToDo[indexPath.row]
         cell.textLabel?.text = todo.inTitle
         cell.detailTextLabel?.text = todo.inDetail
-        
         //Cell が何行目かに応じてメモの値を表示>indexPathh型
+        
         return cell
         
     }
