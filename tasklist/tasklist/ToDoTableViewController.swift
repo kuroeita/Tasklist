@@ -45,7 +45,7 @@ class ToDoTableViewController: UITableViewController {
         //データが変わったところでUserDefaultsを更新する処理
 
 
-        allToDo.sort{$0.inCalendar < $1.inCalendar}
+        allToDo.sort()
         //ソート
 
         self.tableView.reloadData()
@@ -56,6 +56,8 @@ class ToDoTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.register(UINib(nibName: "ToDoTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         
     }
 
@@ -76,7 +78,8 @@ class ToDoTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath)
         //実際に[todos]のデータをリストに表示するメソッド
         //リストの行である Cell を作ってそれを返す処理
 

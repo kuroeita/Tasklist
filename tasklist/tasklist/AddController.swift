@@ -8,12 +8,20 @@
 
 import UIKit
 
-class ToDoInformation {
+class ToDoInformation: Comparable {
+    static func < (lhs: ToDoInformation, rhs: ToDoInformation) -> Bool {
+        return lhs.inCalendar > rhs.inCalendar
+    }
+    
+    static func == (lhs: ToDoInformation, rhs: ToDoInformation) -> Bool {
+        return lhs.inCalendar == rhs.inCalendar
+    }
+    
     var inTitle: String
     var inDetail: String
-    var inCalendar: String
+    var inCalendar: Date
 
-    init(_ title: String, _ detail: String, _ calendar: String) {
+    init(_ title: String, _ detail: String, _ calendar: Date) {
         self.inTitle = title
         self.inDetail = detail
         self.inCalendar = calendar
@@ -48,7 +56,7 @@ class AddController: UIViewController {
             //値がセットされていたらタイトルを変更
             //ボタンも変更したい
             self.todoDetails.text = todo.inDetail
-            self.calendarField.text = todo.inCalendar
+            self.calendarField.text = convertDate(date: todo.inCalendar)
 
         }
 
@@ -73,11 +81,16 @@ class AddController: UIViewController {
     @objc func done() {
         calendarField.endEditing(true)
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        calendarField.text = "\(formatter.string(from: calender.date))"
+        calendarField.text = convertDate(date: calender.date)
     }
    
+    func convertDate(date: Date) ->String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date)
+        
+    }
+    
     private func saveButtinState() {
         //saveButtonの中身がなかった時に無効にする処理
         let title = self.todoTitle.text ?? ""
@@ -122,7 +135,7 @@ class AddController: UIViewController {
             else {
             return
         }
-        todo = ToDoInformation(todoTitle.text ?? "", todoDetails.text ?? "", calendarField.text ?? "")
+        todo = ToDoInformation(todoTitle.text ?? "", todoDetails.text ?? "", calender.date)
 //        self.taitle = self.todoTitle.text ?? ""
 //        //チェックがOKだった箇所の処理
 //        self.detail = self.todoDetails.text ?? ""
