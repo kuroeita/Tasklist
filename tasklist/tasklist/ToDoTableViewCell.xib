@@ -28,10 +28,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEZ-dU-JSV">
-                        <rect key="frame" x="260" y="0.0" width="60" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="時間表示したい" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEZ-dU-JSV">
+                        <rect key="frame" x="198.5" y="0.0" width="121.5" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="60" id="ZxY-7J-HOK"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Dcq-PA-cNb"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>

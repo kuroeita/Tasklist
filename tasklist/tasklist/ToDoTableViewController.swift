@@ -17,10 +17,8 @@ class ToDoTableViewController: UITableViewController {
 //    var allsTodo = [ToDoInformation]()
     var allToDo: [ToDoInformation] = []
     
-//    var details = [String]()
+    //    var details = [String]()
     
-    
-
     @IBAction func rewindTitle(sender: UIStoryboardSegue) {
         //saveを押してセグエを巻き戻す際に実行されるメソッド
         guard let previousTitle = sender.source as? AddController, let todo = previousTitle.todo else {
@@ -79,14 +77,23 @@ class ToDoTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
         //実際に[todos]のデータをリストに表示するメソッド
         //リストの行である Cell を作ってそれを返す処理
 
         // Configure the cell...
         let todo = allToDo[indexPath.row]
-        cell.textLabel?.text = todo.inTitle
-        cell.detailTextLabel?.text = todo.inDetail
+        cell.cellTitleLabel?.text = todo.inTitle
+        cell.cellDetailLabel?.text = todo.inDetail
+
+        
+        
+        //        cell.cellCalenderLabel = todo.inCalendar
+
+//        cell.textLabel?.text = todo.inTitle
+//        cell.detailTextLabel?.text = todo.inDetail
+
+        
         //Cell が何行目かに応じてメモの値を表示>indexPathh型
         
         return cell

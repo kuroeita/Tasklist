@@ -93,15 +93,6 @@
         <scene sceneID="OTC-4K-9vX">
             <objects>
                 <tableViewController id="ROk-rg-QNG" customClass="ToDoTableViewController" customModule="tasklist" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wJ9-dz-mCQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="dataSource" destination="ROk-rg-QNG" id="x6R-oN-YHL"/>
-                            <outlet property="delegate" destination="ROk-rg-QNG" id="lXc-TK-if3"/>
-                        </connections>
-                    </tableView>
                     <navigationItem key="navigationItem" id="WJe-9f-fJT">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dAE-77-oa0">
                             <connections>
