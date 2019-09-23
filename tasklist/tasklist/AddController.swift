@@ -56,7 +56,7 @@ class AddController: UIViewController {
             //値がセットされていたらタイトルを変更
             //ボタンも変更したい
             self.todoDetails.text = todo.inDetail
-            self.calendarField.text = convertDate(date: todo.inCalendar)
+            self.calendarField.text = Util.convertDate(date: todo.inCalendar)
 
         }
 
@@ -81,23 +81,17 @@ class AddController: UIViewController {
     @objc func done() {
         calendarField.endEditing(true)
         
-        calendarField.text = convertDate(date: calender.date)
+        calendarField.text = Util.convertDate(date: calender.date)
     }
    
-    func convertDate(date: Date) ->String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter.string(from: date)
-        
-    }
     
     private func saveButtinState() {
         //saveButtonの中身がなかった時に無効にする処理
         let title = self.todoTitle.text ?? ""
         self.saveButton.isEnabled = !title.isEmpty
             }
-    
-    
+
+
      @IBAction func titleTextFieldChanged(_ sender: Any) {
         //textField に入力された値を検出
 //        let title = self.todoTitle.text ?? "" ←praivateメソッドで処理

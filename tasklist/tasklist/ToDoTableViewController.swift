@@ -17,7 +17,9 @@ class ToDoTableViewController: UITableViewController {
 //    var allsTodo = [ToDoInformation]()
     var allToDo: [ToDoInformation] = []
     
-    //    var details = [String]()
+    var sectionCell = ["セクションテスト"]
+    //セクションテスト
+    
     
     @IBAction func rewindTitle(sender: UIStoryboardSegue) {
         //saveを押してセグエを巻き戻す際に実行されるメソッド
@@ -55,24 +57,46 @@ class ToDoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.register(UINib(nibName: "ToDoTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        tableView.delegate = self
+        tableView.dataSource = self
         
+        
+        self.tableView.register(UINib(nibName: "ToDoTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        self.tableView.register(UINib(nibName: "ToDoHederTableViewCell", bundle: nil), forCellReuseIdentifier: "hederCell")
+       
+        let hederCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "hederCell")!
+        let hederViewe: UIView = hederCell.contentView
+        tableView.tableHeaderView = hederViewe
+        //ヘッダー
     }
 
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
         //リストがいくつのセクションに別れているかを返す
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sectioTitle = ["説明(セクション)", "ToDo一覧"]
+        return sectioTitle[section]
+    }
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return allToDo.count
-        //何行か行数を返す
-    }
+        //何行か行数を返すメソッド
 
+        if section == 0 {
+            return sectionCell.count
+            
+        } else if section == 1 {
+            return allToDo.count
+            
+        } else {
+            return 0
+        }
+    }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,10 +105,19 @@ class ToDoTableViewController: UITableViewController {
         //実際に[todos]のデータをリストに表示するメソッド
         //リストの行である Cell を作ってそれを返す処理
 
-        // Configure the cell...
-        let todo = allToDo[indexPath.row]
-        cell.cellTitleLabel?.text = todo.inTitle
-        cell.cellDetailLabel?.text = todo.inDetail
+        if indexPath.section == 0 {
+            cell.cellTitleLabel?.text = "タイトルを入れます"
+            cell.cellDetailLabel?.text = "詳細を入れます"
+            cell.cellCalenderLabel?.text = "日付が入ります"
+            
+        } else if indexPath.section == 1 {
+            let todo = allToDo[indexPath.row]
+
+            cell.cellTitleLabel?.text = todo.inTitle
+            cell.cellDetailLabel?.text = todo.inDetail
+            cell.cellCalenderLabel?.text = todo.inCalendar.convertDate()
+
+            }
 
         
         
@@ -140,6 +173,23 @@ class ToDoTableViewController: UITableViewController {
     */
 
     // MARK: - Navigation
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //セルの遷移
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.present(AddController(), animated: true, completion: nil)
+        
+        let todoTB = AddController()
+        let todo = allToDo[(tableView.indexPathForSelectedRow?.row)!]
+        todoTB.todo = todo
+
+        
+        
+        
+    }
+    
+    
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -171,5 +221,6 @@ class ToDoTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
+    
 
 }
