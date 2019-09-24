@@ -176,13 +176,15 @@ class ToDoTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //セルの遷移
+        let vc = AddController()
+        
+        let todo = allToDo[(tableView.indexPathForSelectedRow?.row)!]
+        vc.todo = todo
         
         tableView.deselectRow(at: indexPath, animated: true)
-        self.present(AddController(), animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)
         
-        let todoTB = AddController()
-        let todo = allToDo[(tableView.indexPathForSelectedRow?.row)!]
-        todoTB.todo = todo
+      
 
         
         

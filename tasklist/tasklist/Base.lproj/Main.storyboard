@@ -13,7 +13,7 @@
         <!--Add ToDo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AddController" customModule="tasklist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddController" id="BYZ-38-t0r" customClass="AddController" customModule="tasklist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,8 +80,8 @@
                     <connections>
                         <outlet property="calendarField" destination="WKu-ZM-lAE" id="z3q-N6-QNj"/>
                         <outlet property="saveButton" destination="UA3-6d-Tut" id="Zyv-dJ-jOb"/>
-                        <outlet property="todoDetails" destination="vGQ-WA-BIY" id="5IZ-vL-Qzg"/>
-                        <outlet property="todoTitle" destination="xbD-06-P5L" id="wef-g4-jSz"/>
+                        <outlet property="todoDetails" destination="vGQ-WA-BIY" id="inF-lx-w59"/>
+                        <outlet property="todoTitle" destination="xbD-06-P5L" id="d8F-gB-cIb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
