@@ -32,7 +32,7 @@ class AddController: UIViewController {
     
     //詳細の実装のため追加
     var todo: ToDoInformation?
-     var calender: UIDatePicker = UIDatePicker()
+    var calender: UIDatePicker = UIDatePicker()
     
     
     @IBOutlet weak var todoTitle: UITextField!

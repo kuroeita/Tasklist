@@ -176,53 +176,21 @@ class ToDoTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //セルの遷移
-        let vc = AddController()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nc = storyboard.instantiateViewController(withIdentifier: "AddNavigationController") as! UINavigationController
+        
+        let addvc = nc.viewControllers[0] as! AddController
         
         let todo = allToDo[(tableView.indexPathForSelectedRow?.row)!]
-        vc.todo = todo
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        self.present(vc, animated: true, completion: nil)
-        
-      
+        addvc.todo = todo
 
+//        tableView.deselectRow(at: indexPath, animated: true)
+        //ここで選択状態を解除すると、rewindTitleのguardメソッドが通らなくなり、編集できなくなるため無効化
+        self.present(nc, animated: true, completion: nil)
         
-        
-        
+        //ストーリーボードから識別子を持ってきて遷移先の画面を紐付けて、値を渡す作業
+    
     }
     
-    
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //タップされた行のcellを遷移先の画面に渡す
-        //segue で遷移する前に呼ばれる prepare メソッドを使用
-        guard let identifier = segue.identifier else {
-            //guardでsegueのidenteifierをセット
-            return
-            //セットできなかった場合は処理を止める
-        }
-        if identifier == "editTodo" {
-            let todoTB = segue.destination as! AddController
-            //セットできた場合、 identifier が editTodo かどうかをチェック
-            //editTodo の場合は遷移先の ViewController を取得
-            //キャストの意味がわからない
-            
-            let todo = allToDo[(tableView.indexPathForSelectedRow?.row)!]
-            todoTB.todo = todo
-//            todoTB.taitle = self.todos[(self.tableView.indexPathForSelectedRow?.row)!]
-            // プロパティに選択されている行の todo を入れる処理
-            //=addController のviewDidLoad で値を受け取る
-            
-//            let lorddetails = UserDefaults.standard.object(forKey: "details")
-//            todoTB.detail = details[(self.tableView.indexPathForSelectedRow?.row)!]
-            //詳細の実装
-            
-        }
-        
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    
-
 }
