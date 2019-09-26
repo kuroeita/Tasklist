@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25018B8F233CCE2B008E38B0 /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25018B8E233CCE2B008E38B0 /* SortViewController.swift */; };
+		25018B91233CCF8D008E38B0 /* SortTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25018B90233CCF8D008E38B0 /* SortTableViewController.swift */; };
 		250F03442327672900CC9A86 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F03432327672900CC9A86 /* ToDoTableViewController.swift */; };
 		250F03462327674800CC9A86 /* AddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F03452327674800CC9A86 /* AddController.swift */; };
 		25150C212314DA1F009B656C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25150C202314DA1F009B656C /* AppDelegate.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25018B8E233CCE2B008E38B0 /* SortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
+		25018B90233CCF8D008E38B0 /* SortTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTableViewController.swift; sourceTree = "<group>"; };
 		250F03432327672900CC9A86 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		250F03452327674800CC9A86 /* AddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddController.swift; sourceTree = "<group>"; };
 		25150C1D2314DA1F009B656C /* tasklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tasklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +72,8 @@
 		25150C1F2314DA1F009B656C /* tasklist */ = {
 			isa = PBXGroup;
 			children = (
+				25018B8E233CCE2B008E38B0 /* SortViewController.swift */,
+				25018B90233CCF8D008E38B0 /* SortTableViewController.swift */,
 				25150C202314DA1F009B656C /* AppDelegate.swift */,
 				250F03452327674800CC9A86 /* AddController.swift */,
 				2564A9E02334D54F00F0C911 /* Util.swift */,
@@ -160,8 +166,10 @@
 			files = (
 				2564A9E62338A7A300F0C911 /* ToDoHederTableViewCell.swift in Sources */,
 				25150C232314DA1F009B656C /* ViewController.swift in Sources */,
+				25018B8F233CCE2B008E38B0 /* SortViewController.swift in Sources */,
 				2564A9E12334D54F00F0C911 /* Util.swift in Sources */,
 				250F03442327672900CC9A86 /* ToDoTableViewController.swift in Sources */,
+				25018B91233CCF8D008E38B0 /* SortTableViewController.swift in Sources */,
 				25150C212314DA1F009B656C /* AppDelegate.swift in Sources */,
 				250F03462327674800CC9A86 /* AddController.swift in Sources */,
 				2564A9DE2331DF8A00F0C911 /* ToDoTableViewCell.swift in Sources */,

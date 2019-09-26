@@ -8,6 +8,83 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="wFk-sO-LjT">
+            <objects>
+                <navigationController id="J8q-sY-7Oe" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="pHK-GF-gtl"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gvc-xg-ehp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bdo-dG-ObX" kind="relationship" relationship="rootViewController" id="GjE-WM-uzC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uLy-ry-siE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-375" y="-889"/>
+        </scene>
+        <!--Sort View Controller-->
+        <scene sceneID="CAg-Si-GZk">
+            <objects>
+                <viewController id="bdo-dG-ObX" customClass="SortViewController" customModule="tasklist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dRh-Vj-ZZ2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="48I-ue-HbY">
+                                <rect key="frame" x="0.0" y="44" width="375" height="274"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="sortcell" textLabel="oFI-3I-dsT" style="IBUITableViewCellStyleDefault" id="JQL-Vm-dYi">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JQL-Vm-dYi" id="bia-Ur-QNd" customClass="UITableViewCell">
+                                            <rect key="frame" x="0.0" y="0.0" width="336" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oFI-3I-dsT">
+                                                    <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="NVU-et-fyN" firstAttribute="trailing" secondItem="48I-ue-HbY" secondAttribute="trailing" id="YH3-BR-zGw"/>
+                            <constraint firstItem="48I-ue-HbY" firstAttribute="top" secondItem="NVU-et-fyN" secondAttribute="top" id="mS6-0J-JEY"/>
+                            <constraint firstItem="48I-ue-HbY" firstAttribute="leading" secondItem="NVU-et-fyN" secondAttribute="leading" id="u3d-SB-tIu"/>
+                            <constraint firstItem="NVU-et-fyN" firstAttribute="bottom" secondItem="48I-ue-HbY" secondAttribute="bottom" constant="300" id="uAm-aj-1J4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NVU-et-fyN"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="buD-V8-zIb">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="BLa-KI-NHM">
+                            <connections>
+                                <action selector="cancel:" destination="bdo-dG-ObX" id="fEl-t2-n36"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rEn-Ug-NKE">
+                            <connections>
+                                <action selector="save:" destination="bdo-dG-ObX" id="FSe-44-uxP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7p-2P-nQf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="540" y="-889"/>
+        </scene>
         <!--Add ToDo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -82,13 +159,19 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="7wI-IQ-Eek" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="733.60000000000002" y="-205.54722638680661"/>
+            <point key="canvasLocation" x="1570" y="-85"/>
         </scene>
         <!--To Do Table View Controller-->
         <scene sceneID="OTC-4K-9vX">
             <objects>
                 <tableViewController id="ROk-rg-QNG" customClass="ToDoTableViewController" customModule="tasklist" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="WJe-9f-fJT">
+                        <barButtonItem key="leftBarButtonItem" title="並び替え" id="04l-aQ-dhV">
+                            <connections>
+                                <action selector="changesort:" destination="ROk-rg-QNG" id="Tjc-oj-6lm"/>
+                                <segue destination="J8q-sY-7Oe" kind="show" id="p9l-xD-lUf"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dAE-77-oa0">
                             <connections>
                                 <segue destination="OsJ-V2-6IY" kind="presentation" identifier="addTodo" id="wI7-ZW-LeZ"/>
@@ -116,7 +199,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z7e-US-cEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="498" y="469"/>
+            <point key="canvasLocation" x="572" y="-78"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GTm-QC-oci">

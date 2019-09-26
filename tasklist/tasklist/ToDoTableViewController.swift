@@ -20,7 +20,7 @@ class ToDoTableViewController: UITableViewController {
     var sectionCell = ["セクションテスト"]
     //セクションテスト
     
-    
+        
     @IBAction func rewindTitle(sender: UIStoryboardSegue) {
         //saveを押してセグエを巻き戻す際に実行されるメソッド
         guard let previousTitle = sender.source as? AddController, let todo = previousTitle.todo else {
