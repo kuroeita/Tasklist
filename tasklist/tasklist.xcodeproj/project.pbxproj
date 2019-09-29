@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		25018B8F233CCE2B008E38B0 /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25018B8E233CCE2B008E38B0 /* SortViewController.swift */; };
 		25018B91233CCF8D008E38B0 /* SortTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25018B90233CCF8D008E38B0 /* SortTableViewController.swift */; };
+		25018B94233DB80C008E38B0 /* sort2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25018B93233DB80C008E38B0 /* sort2.storyboard */; };
 		250F03442327672900CC9A86 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F03432327672900CC9A86 /* ToDoTableViewController.swift */; };
 		250F03462327674800CC9A86 /* AddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F03452327674800CC9A86 /* AddController.swift */; };
 		25150C212314DA1F009B656C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25150C202314DA1F009B656C /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		25018B8E233CCE2B008E38B0 /* SortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
 		25018B90233CCF8D008E38B0 /* SortTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTableViewController.swift; sourceTree = "<group>"; };
+		25018B93233DB80C008E38B0 /* sort2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = sort2.storyboard; sourceTree = "<group>"; };
 		250F03432327672900CC9A86 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		250F03452327674800CC9A86 /* AddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddController.swift; sourceTree = "<group>"; };
 		25150C1D2314DA1F009B656C /* tasklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tasklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25018B92233DB786008E38B0 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				25018B93233DB80C008E38B0 /* sort2.storyboard */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		25150C142314DA1F009B656C = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +82,7 @@
 		25150C1F2314DA1F009B656C /* tasklist */ = {
 			isa = PBXGroup;
 			children = (
+				25018B92233DB786008E38B0 /* New Group */,
 				25018B8E233CCE2B008E38B0 /* SortViewController.swift */,
 				25018B90233CCF8D008E38B0 /* SortTableViewController.swift */,
 				25150C202314DA1F009B656C /* AppDelegate.swift */,
@@ -150,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25150C2B2314DA22009B656C /* LaunchScreen.storyboard in Resources */,
+				25018B94233DB80C008E38B0 /* sort2.storyboard in Resources */,
 				25150C282314DA22009B656C /* Assets.xcassets in Resources */,
 				2564A9E72338A7A300F0C911 /* ToDoHederTableViewCell.xib in Resources */,
 				25150C262314DA1F009B656C /* Main.storyboard in Resources */,

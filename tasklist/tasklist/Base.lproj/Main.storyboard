@@ -168,7 +168,6 @@
                     <navigationItem key="navigationItem" id="WJe-9f-fJT">
                         <barButtonItem key="leftBarButtonItem" title="並び替え" id="04l-aQ-dhV">
                             <connections>
-                                <action selector="changesort:" destination="ROk-rg-QNG" id="Tjc-oj-6lm"/>
                                 <segue destination="J8q-sY-7Oe" kind="show" id="p9l-xD-lUf"/>
                             </connections>
                         </barButtonItem>

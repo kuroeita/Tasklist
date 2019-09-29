@@ -86,52 +86,112 @@ class ToDoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         //何行か行数を返すメソッド
-
+      
         if section == 0 {
             return sectionCell.count
             
         } else if section == 1 {
-            return allToDo.count
+            if self.allToDo.count == 0 {
+                return 1
+                
+            } else {
+                return allToDo.count
+                
+            }
             
-        } else {
-            return 0
         }
+        return allToDo.count
+        // 何も投稿されていない時の表示Cellを出すためにretarun1をしてる
     }
+    
 
+        
+//        if section == 0 {
+//            return sectionCell.count
+//
+//        } else if section == 1 {
+//            return allToDo.count
+//
+//        } else {
+//            return 0
+//        }
+//    }
+        
+    
+    
+    
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
         //実際に[todos]のデータをリストに表示するメソッド
         //リストの行である Cell を作ってそれを返す処理
+        
 
+                
         if indexPath.section == 0 {
+                    
             cell.cellTitleLabel?.text = "タイトルを入れます"
             cell.cellDetailLabel?.text = "詳細を入れます"
             cell.cellCalenderLabel?.text = "日付が入ります"
-            
+                
         } else if indexPath.section == 1 {
-            let todo = allToDo[indexPath.row]
+            if self.allToDo.count == 0 {
+                        
+                cell.cellTitleLabel?.text = "ToDoが何も投稿されていません"
+                cell.cellDetailLabel?.text = ""
+                cell.cellCalenderLabel?.text = ""
+                        
+                return cell
+                    // 何も表示されていない時の表示
+            } else {
+                    
+                let todo = allToDo[indexPath.row]
+                cell.cellTitleLabel?.text = todo.inTitle
+                cell.cellDetailLabel?.text = todo.inDetail
+                cell.cellCalenderLabel?.text = todo.inCalendar.convertDate()
 
-            cell.cellTitleLabel?.text = todo.inTitle
-            cell.cellDetailLabel?.text = todo.inDetail
-            cell.cellCalenderLabel?.text = todo.inCalendar.convertDate()
-
-            }
-
-        
-        
-        //        cell.cellCalenderLabel = todo.inCalendar
-
-//        cell.textLabel?.text = todo.inTitle
-//        cell.detailTextLabel?.text = todo.inDetail
-
-        
-        //Cell が何行目かに応じてメモの値を表示>indexPathh型
-        
+                    }
+                    
+                }
         return cell
+                
+            }
         
-    }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+//        if indexPath.section == 0 {
+//            cell.cellTitleLabel?.text = "タイトルを入れます"
+//            cell.cellDetailLabel?.text = "詳細を入れます"
+//            cell.cellCalenderLabel?.text = "日付が入ります"
+//
+//        } else if indexPath.section == 1 {
+//            let todo = allToDo[indexPath.row]
+//
+//            cell.cellTitleLabel?.text = todo.inTitle
+//            cell.cellDetailLabel?.text = todo.inDetail
+//            cell.cellCalenderLabel?.text = todo.inCalendar.convertDate()
+//
+//            }
+//        //        cell.cellCalenderLabel = todo.inCalendar
+//
+////        cell.textLabel?.text = todo.inTitle
+////        cell.detailTextLabel?.text = todo.inDetail
+//        //Cell が何行目かに応じてメモの値を表示>indexPathh型
+//
+//        return cell
+//
+//    }
     
 
     /*

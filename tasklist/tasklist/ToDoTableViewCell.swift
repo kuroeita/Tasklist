@@ -13,6 +13,11 @@ class ToDoTableViewCell: UITableViewCell {
     @IBOutlet weak var cellDetailLabel: UILabel!
     @IBOutlet weak var cellCalenderLabel: UILabel!
     
+        
+    @IBAction func likeSetteing(_ sender: UIButton) {
+        sender.setTitle("お気に入り済み", for: .normal)
+
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
