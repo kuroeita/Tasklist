@@ -18,18 +18,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10d-Hx-eRc">
-                        <rect key="frame" x="35" y="16" width="250" height="12"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="250" id="bws-AK-pqU"/>
+                            <constraint firstAttribute="height" constant="60" id="RgJ-N3-Sdc"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="10d-Hx-eRc" secondAttribute="trailing" id="4E3-31-G10"/>
+                    <constraint firstItem="10d-Hx-eRc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ONS-QE-1uo"/>
                     <constraint firstItem="10d-Hx-eRc" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="VJp-PN-sg7"/>
+                    <constraint firstItem="10d-Hx-eRc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jJE-jU-jxF"/>
                     <constraint firstItem="10d-Hx-eRc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ktQ-xX-bgK"/>
+                    <constraint firstAttribute="bottom" secondItem="10d-Hx-eRc" secondAttribute="bottom" id="whV-Ya-2tC"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

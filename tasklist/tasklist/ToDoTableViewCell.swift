@@ -10,7 +10,7 @@ import UIKit
 
 class ToDoTableViewCell: UITableViewCell {
     
-    var flag: Bool = false
+    var likeSetteingButtonFlag: Bool = false
     
     @IBOutlet weak var likeSetteingColor: UIButton!
     @IBOutlet weak var cellTitleLabel: UILabel!
@@ -18,20 +18,20 @@ class ToDoTableViewCell: UITableViewCell {
     @IBOutlet weak var cellCalenderLabel: UILabel!
     @IBAction func likeSetteing(_ sender: UIButton) {
         
-        if flag == false {
+        if likeSetteingButtonFlag == false {
             sender.setTitle("お気に入り登録", for: .normal)
             sender.setTitleColor(UIColor.black, for: .normal)
             let cloer2 = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
             likeSetteingColor.backgroundColor = cloer2
-            flag = true
+            likeSetteingButtonFlag = true
             
 
-        } else if flag == true {
+        } else if likeSetteingButtonFlag == true {
             sender.setTitle("お気に入り済み", for: .normal)
             sender.setTitleColor(UIColor.white, for: .normal)
             let cloer3 = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
             likeSetteingColor.backgroundColor = cloer3
-            flag = false
+            likeSetteingButtonFlag = false
             
         }
 
@@ -46,7 +46,7 @@ class ToDoTableViewCell: UITableViewCell {
         likeSetteingColor.backgroundColor = cloer
         likeSetteingColor.layer.borderWidth = 1.5
         likeSetteingColor.layer.borderColor = UIColor.black.cgColor
-        flag = false
+        likeSetteingButtonFlag = false
         
     }
 

@@ -10,9 +10,13 @@ import UIKit
 
 class ToDoHederTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var hederImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        hederImage.image = UIImage(named: "AppIcon")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -76,6 +76,7 @@ class ToDoTableViewController: UITableViewController {
         let hederCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "hederCell")!
         let hederViewe: UIView = hederCell.contentView
         tableView.tableHeaderView = hederViewe
+        
         //ヘッダー
         
     }

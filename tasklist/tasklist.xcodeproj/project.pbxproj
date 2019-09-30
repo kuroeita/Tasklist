@@ -21,6 +21,7 @@
 		25094D002341CDB9008C90FE /* sort2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25094CFF2341CDB9008C90FE /* sort2.storyboard */; };
 		25094D032341CF03008C90FE /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25094D012341CF03008C90FE /* SectionTableViewCell.swift */; };
 		25094D042341CF03008C90FE /* SectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25094D022341CF03008C90FE /* SectionTableViewCell.xib */; };
+		25094D0623421CA1008C90FE /* ダウンロード.png in Resources */ = {isa = PBXBuildFile; fileRef = 25094D0523421CA1008C90FE /* ダウンロード.png */; };
 		25150C212314DA1F009B656C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25150C202314DA1F009B656C /* AppDelegate.swift */; };
 		25150C232314DA1F009B656C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25150C222314DA1F009B656C /* ViewController.swift */; };
 		25150C262314DA1F009B656C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25150C242314DA1F009B656C /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		25094CFF2341CDB9008C90FE /* sort2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = sort2.storyboard; path = "tasklist/New Group/sort2.storyboard"; sourceTree = SOURCE_ROOT; };
 		25094D012341CF03008C90FE /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SectionTableViewCell.swift; path = "tasklist/New Group/SectionTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		25094D022341CF03008C90FE /* SectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SectionTableViewCell.xib; path = "tasklist/New Group/SectionTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		25094D0523421CA1008C90FE /* ダウンロード.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ダウンロード.png"; sourceTree = "<group>"; };
 		25150C1D2314DA1F009B656C /* tasklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tasklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25150C202314DA1F009B656C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25150C222314DA1F009B656C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				25094CFF2341CDB9008C90FE /* sort2.storyboard */,
 				25094CEF2341CD53008C90FE /* SortTableViewController.swift */,
 				25094CF02341CD53008C90FE /* SortViewController.swift */,
+				25094D0523421CA1008C90FE /* ダウンロード.png */,
 			);
 			path = "Sort View";
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				25094D002341CDB9008C90FE /* sort2.storyboard in Resources */,
 				25150C262314DA1F009B656C /* Main.storyboard in Resources */,
 				25094CF72341CD78008C90FE /* ToDoTableViewCell.xib in Resources */,
+				25094D0623421CA1008C90FE /* ダウンロード.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
