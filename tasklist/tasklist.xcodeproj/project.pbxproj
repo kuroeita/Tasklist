@@ -7,29 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25018B8F233CCE2B008E38B0 /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25018B8E233CCE2B008E38B0 /* SortViewController.swift */; };
-		25018B91233CCF8D008E38B0 /* SortTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25018B90233CCF8D008E38B0 /* SortTableViewController.swift */; };
-		25018B94233DB80C008E38B0 /* sort2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25018B93233DB80C008E38B0 /* sort2.storyboard */; };
-		250F03442327672900CC9A86 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F03432327672900CC9A86 /* ToDoTableViewController.swift */; };
-		250F03462327674800CC9A86 /* AddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F03452327674800CC9A86 /* AddController.swift */; };
+		25094CEA2341CC90008C90FE /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25094CE92341CC90008C90FE /* Util.swift */; };
+		25094CEC2341CCCC008C90FE /* AddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25094CEB2341CCCC008C90FE /* AddController.swift */; };
+		25094CEE2341CD2F008C90FE /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25094CED2341CD2F008C90FE /* ToDoTableViewController.swift */; };
+		25094CF12341CD53008C90FE /* SortTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25094CEF2341CD53008C90FE /* SortTableViewController.swift */; };
+		25094CF22341CD53008C90FE /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25094CF02341CD53008C90FE /* SortViewController.swift */; };
+		25094CF72341CD78008C90FE /* ToDoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25094CF32341CD78008C90FE /* ToDoTableViewCell.xib */; };
+		25094CF82341CD78008C90FE /* ToDoHederTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25094CF42341CD78008C90FE /* ToDoHederTableViewCell.xib */; };
+		25094CF92341CD78008C90FE /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25094CF52341CD78008C90FE /* ToDoTableViewCell.swift */; };
+		25094CFA2341CD78008C90FE /* ToDoHederTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25094CF62341CD78008C90FE /* ToDoHederTableViewCell.swift */; };
+		25094CFD2341CD96008C90FE /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25094CFB2341CD96008C90FE /* EmptyTableViewCell.swift */; };
+		25094CFE2341CD96008C90FE /* EmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25094CFC2341CD96008C90FE /* EmptyTableViewCell.xib */; };
+		25094D002341CDB9008C90FE /* sort2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25094CFF2341CDB9008C90FE /* sort2.storyboard */; };
+		25094D032341CF03008C90FE /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25094D012341CF03008C90FE /* SectionTableViewCell.swift */; };
+		25094D042341CF03008C90FE /* SectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25094D022341CF03008C90FE /* SectionTableViewCell.xib */; };
 		25150C212314DA1F009B656C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25150C202314DA1F009B656C /* AppDelegate.swift */; };
 		25150C232314DA1F009B656C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25150C222314DA1F009B656C /* ViewController.swift */; };
 		25150C262314DA1F009B656C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25150C242314DA1F009B656C /* Main.storyboard */; };
 		25150C282314DA22009B656C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25150C272314DA22009B656C /* Assets.xcassets */; };
 		25150C2B2314DA22009B656C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25150C292314DA22009B656C /* LaunchScreen.storyboard */; };
-		2564A9DE2331DF8A00F0C911 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2564A9DC2331DF8A00F0C911 /* ToDoTableViewCell.swift */; };
-		2564A9DF2331DF8A00F0C911 /* ToDoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2564A9DD2331DF8A00F0C911 /* ToDoTableViewCell.xib */; };
-		2564A9E12334D54F00F0C911 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2564A9E02334D54F00F0C911 /* Util.swift */; };
-		2564A9E62338A7A300F0C911 /* ToDoHederTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2564A9E42338A7A300F0C911 /* ToDoHederTableViewCell.swift */; };
-		2564A9E72338A7A300F0C911 /* ToDoHederTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2564A9E52338A7A300F0C911 /* ToDoHederTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		25018B8E233CCE2B008E38B0 /* SortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
-		25018B90233CCF8D008E38B0 /* SortTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTableViewController.swift; sourceTree = "<group>"; };
-		25018B93233DB80C008E38B0 /* sort2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = sort2.storyboard; sourceTree = "<group>"; };
-		250F03432327672900CC9A86 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
-		250F03452327674800CC9A86 /* AddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddController.swift; sourceTree = "<group>"; };
+		25094CE92341CC90008C90FE /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		25094CEB2341CCCC008C90FE /* AddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddController.swift; sourceTree = "<group>"; };
+		25094CED2341CD2F008C90FE /* ToDoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
+		25094CEF2341CD53008C90FE /* SortTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SortTableViewController.swift; path = tasklist/SortTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		25094CF02341CD53008C90FE /* SortViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SortViewController.swift; path = tasklist/SortViewController.swift; sourceTree = SOURCE_ROOT; };
+		25094CF32341CD78008C90FE /* ToDoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ToDoTableViewCell.xib; path = tasklist/ToDoTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		25094CF42341CD78008C90FE /* ToDoHederTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ToDoHederTableViewCell.xib; path = tasklist/ToDoHederTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		25094CF52341CD78008C90FE /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoTableViewCell.swift; path = tasklist/ToDoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		25094CF62341CD78008C90FE /* ToDoHederTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoHederTableViewCell.swift; path = tasklist/ToDoHederTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		25094CFB2341CD96008C90FE /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyTableViewCell.swift; path = "tasklist/Sort View/cell/EmptyTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		25094CFC2341CD96008C90FE /* EmptyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EmptyTableViewCell.xib; path = "tasklist/Sort View/cell/EmptyTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		25094CFF2341CDB9008C90FE /* sort2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = sort2.storyboard; path = "tasklist/New Group/sort2.storyboard"; sourceTree = SOURCE_ROOT; };
+		25094D012341CF03008C90FE /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SectionTableViewCell.swift; path = "tasklist/New Group/SectionTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		25094D022341CF03008C90FE /* SectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SectionTableViewCell.xib; path = "tasklist/New Group/SectionTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		25150C1D2314DA1F009B656C /* tasklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tasklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25150C202314DA1F009B656C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25150C222314DA1F009B656C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,11 +50,6 @@
 		25150C272314DA22009B656C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25150C2A2314DA22009B656C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25150C2C2314DA22009B656C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2564A9DC2331DF8A00F0C911 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
-		2564A9DD2331DF8A00F0C911 /* ToDoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoTableViewCell.xib; sourceTree = "<group>"; };
-		2564A9E02334D54F00F0C911 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		2564A9E42338A7A300F0C911 /* ToDoHederTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoHederTableViewCell.swift; sourceTree = "<group>"; };
-		2564A9E52338A7A300F0C911 /* ToDoHederTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoHederTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +63,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		25018B92233DB786008E38B0 /* New Group */ = {
+		25018B92233DB786008E38B0 /* Sort View */ = {
 			isa = PBXGroup;
 			children = (
-				25018B93233DB80C008E38B0 /* sort2.storyboard */,
+				25094CFF2341CDB9008C90FE /* sort2.storyboard */,
+				25094CEF2341CD53008C90FE /* SortTableViewController.swift */,
+				25094CF02341CD53008C90FE /* SortViewController.swift */,
 			);
-			path = "New Group";
+			path = "Sort View";
+			sourceTree = "<group>";
+		};
+		25094CE62341CA09008C90FE /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				25094CFB2341CD96008C90FE /* EmptyTableViewCell.swift */,
+				25094CFC2341CD96008C90FE /* EmptyTableViewCell.xib */,
+				25094CF62341CD78008C90FE /* ToDoHederTableViewCell.swift */,
+				25094CF42341CD78008C90FE /* ToDoHederTableViewCell.xib */,
+				25094CF52341CD78008C90FE /* ToDoTableViewCell.swift */,
+				25094CF32341CD78008C90FE /* ToDoTableViewCell.xib */,
+				25094D012341CF03008C90FE /* SectionTableViewCell.swift */,
+				25094D022341CF03008C90FE /* SectionTableViewCell.xib */,
+			);
+			name = cell;
+			path = "New Group/cell";
 			sourceTree = "<group>";
 		};
 		25150C142314DA1F009B656C = {
@@ -82,19 +108,14 @@
 		25150C1F2314DA1F009B656C /* tasklist */ = {
 			isa = PBXGroup;
 			children = (
-				25018B92233DB786008E38B0 /* New Group */,
-				25018B8E233CCE2B008E38B0 /* SortViewController.swift */,
-				25018B90233CCF8D008E38B0 /* SortTableViewController.swift */,
-				25150C202314DA1F009B656C /* AppDelegate.swift */,
-				250F03452327674800CC9A86 /* AddController.swift */,
-				2564A9E02334D54F00F0C911 /* Util.swift */,
-				250F03432327672900CC9A86 /* ToDoTableViewController.swift */,
-				2564A9E42338A7A300F0C911 /* ToDoHederTableViewCell.swift */,
-				2564A9E52338A7A300F0C911 /* ToDoHederTableViewCell.xib */,
-				25150C222314DA1F009B656C /* ViewController.swift */,
+				25094CED2341CD2F008C90FE /* ToDoTableViewController.swift */,
+				25094CEB2341CCCC008C90FE /* AddController.swift */,
+				25094CE92341CC90008C90FE /* Util.swift */,
 				25150C242314DA1F009B656C /* Main.storyboard */,
-				2564A9DC2331DF8A00F0C911 /* ToDoTableViewCell.swift */,
-				2564A9DD2331DF8A00F0C911 /* ToDoTableViewCell.xib */,
+				25018B92233DB786008E38B0 /* Sort View */,
+				25094CE62341CA09008C90FE /* cell */,
+				25150C202314DA1F009B656C /* AppDelegate.swift */,
+				25150C222314DA1F009B656C /* ViewController.swift */,
 				25150C272314DA22009B656C /* Assets.xcassets */,
 				25150C292314DA22009B656C /* LaunchScreen.storyboard */,
 				25150C2C2314DA22009B656C /* Info.plist */,
@@ -161,11 +182,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				25150C2B2314DA22009B656C /* LaunchScreen.storyboard in Resources */,
-				25018B94233DB80C008E38B0 /* sort2.storyboard in Resources */,
+				25094D042341CF03008C90FE /* SectionTableViewCell.xib in Resources */,
 				25150C282314DA22009B656C /* Assets.xcassets in Resources */,
-				2564A9E72338A7A300F0C911 /* ToDoHederTableViewCell.xib in Resources */,
+				25094CF82341CD78008C90FE /* ToDoHederTableViewCell.xib in Resources */,
+				25094CFE2341CD96008C90FE /* EmptyTableViewCell.xib in Resources */,
+				25094D002341CDB9008C90FE /* sort2.storyboard in Resources */,
 				25150C262314DA1F009B656C /* Main.storyboard in Resources */,
-				2564A9DF2331DF8A00F0C911 /* ToDoTableViewCell.xib in Resources */,
+				25094CF72341CD78008C90FE /* ToDoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,15 +199,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2564A9E62338A7A300F0C911 /* ToDoHederTableViewCell.swift in Sources */,
+				25094CEA2341CC90008C90FE /* Util.swift in Sources */,
 				25150C232314DA1F009B656C /* ViewController.swift in Sources */,
-				25018B8F233CCE2B008E38B0 /* SortViewController.swift in Sources */,
-				2564A9E12334D54F00F0C911 /* Util.swift in Sources */,
-				250F03442327672900CC9A86 /* ToDoTableViewController.swift in Sources */,
-				25018B91233CCF8D008E38B0 /* SortTableViewController.swift in Sources */,
+				25094CEC2341CCCC008C90FE /* AddController.swift in Sources */,
+				25094CFD2341CD96008C90FE /* EmptyTableViewCell.swift in Sources */,
+				25094CF92341CD78008C90FE /* ToDoTableViewCell.swift in Sources */,
+				25094D032341CF03008C90FE /* SectionTableViewCell.swift in Sources */,
+				25094CFA2341CD78008C90FE /* ToDoHederTableViewCell.swift in Sources */,
 				25150C212314DA1F009B656C /* AppDelegate.swift in Sources */,
-				250F03462327674800CC9A86 /* AddController.swift in Sources */,
-				2564A9DE2331DF8A00F0C911 /* ToDoTableViewCell.swift in Sources */,
+				25094CF22341CD53008C90FE /* SortViewController.swift in Sources */,
+				25094CEE2341CD2F008C90FE /* ToDoTableViewController.swift in Sources */,
+				25094CF12341CD53008C90FE /* SortTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -63,7 +63,10 @@ class ToDoTableViewController: UITableViewController {
         
         self.tableView.register(UINib(nibName: "ToDoTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         self.tableView.register(UINib(nibName: "ToDoHederTableViewCell", bundle: nil), forCellReuseIdentifier: "hederCell")
-       
+        self.tableView.register(UINib(nibName: "EmptyTableViewCell", bundle: nil), forCellReuseIdentifier: "emptyCell")
+        self.tableView.register(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionCell")
+        
+        
         let hederCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "hederCell")!
         let hederViewe: UIView = hederCell.contentView
         tableView.tableHeaderView = hederViewe
@@ -124,39 +127,44 @@ class ToDoTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
+        
         //実際に[todos]のデータをリストに表示するメソッド
         //リストの行である Cell を作ってそれを返す処理
         
 
                 
         if indexPath.section == 0 {
-                    
-            cell.cellTitleLabel?.text = "タイトルを入れます"
-            cell.cellDetailLabel?.text = "詳細を入れます"
-            cell.cellCalenderLabel?.text = "日付が入ります"
-                
+            let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCell") as! SectionTableViewCell
+            
+            cell.titleLabel.text = "ToDoにはタイトルと詳細説明と終了日を設定することが出来ます"
+            
+            return cell
+                                    
         } else if indexPath.section == 1 {
             if self.allToDo.count == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell") as! EmptyTableViewCell
                         
-                cell.cellTitleLabel?.text = "ToDoが何も投稿されていません"
-                cell.cellDetailLabel?.text = ""
-                cell.cellCalenderLabel?.text = ""
+                cell.titleLabel.text = "何も投稿されていません"
                         
                 return cell
                     // 何も表示されていない時の表示
             } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
                     
                 let todo = allToDo[indexPath.row]
                 cell.cellTitleLabel?.text = todo.inTitle
                 cell.cellDetailLabel?.text = todo.inDetail
                 cell.cellCalenderLabel?.text = todo.inCalendar.convertDate()
-
-                    }
-                    
-                }
-        return cell
                 
+                return cell
+
+            }
+            
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
+        
+        return cell
+                        
             }
         
         

@@ -13,30 +13,24 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" id="KGk-i7-Jjw" customClass="ToDoTableViewCell" customModule="tasklist" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNO-cR-aY0">
-                        <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="42" id="oU6-nm-25A"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNO-cR-aY0">
+                        <rect key="frame" x="0.0" y="0.0" width="137" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ry6-ea-8E3">
-                        <rect key="frame" x="0.0" y="22" width="150" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="150" id="f7S-vU-1S6"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ry6-ea-8E3">
+                        <rect key="frame" x="0.0" y="22" width="207" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CY1-RI-Vse">
-                        <rect key="frame" x="200" y="0.0" width="108" height="44"/>
+                        <rect key="frame" x="212" y="0.0" width="108" height="44"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="108" id="T2s-Gh-UmB"/>
                         </constraints>
@@ -46,11 +40,11 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="時間表示したい" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEZ-dU-JSV">
-                        <rect key="frame" x="69" y="0.0" width="109.5" height="21"/>
+                        <rect key="frame" x="141" y="0.0" width="70" height="13.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="109.5" id="JbK-gg-rAW"/>
+                            <constraint firstAttribute="width" constant="70" id="JbK-gg-rAW"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -59,15 +53,16 @@
                 <constraints>
                     <constraint firstItem="nNO-cR-aY0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Hjv-p9-ELB"/>
                     <constraint firstItem="bEZ-dU-JSV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="I3V-WQ-rro"/>
+                    <constraint firstItem="CY1-RI-Vse" firstAttribute="leading" secondItem="Ry6-ea-8E3" secondAttribute="trailing" constant="5" id="M6g-3j-dyg"/>
                     <constraint firstAttribute="bottom" secondItem="CY1-RI-Vse" secondAttribute="bottom" id="Mt5-JC-Xxe"/>
                     <constraint firstItem="CY1-RI-Vse" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="V2f-Np-0pT"/>
-                    <constraint firstItem="CY1-RI-Vse" firstAttribute="leading" secondItem="Ry6-ea-8E3" secondAttribute="trailing" constant="50" id="X4L-Zh-XJy"/>
-                    <constraint firstItem="bEZ-dU-JSV" firstAttribute="leading" secondItem="nNO-cR-aY0" secondAttribute="trailing" constant="27" id="Xff-uY-Dlp"/>
+                    <constraint firstAttribute="bottom" secondItem="Ry6-ea-8E3" secondAttribute="bottom" id="WdK-Uu-TG1"/>
                     <constraint firstAttribute="trailing" secondItem="CY1-RI-Vse" secondAttribute="trailing" id="Yb0-Lh-Mzx"/>
                     <constraint firstItem="Ry6-ea-8E3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bBH-AZ-etv"/>
-                    <constraint firstItem="CY1-RI-Vse" firstAttribute="leading" secondItem="bEZ-dU-JSV" secondAttribute="trailing" constant="21.5" id="doU-0U-c2c"/>
+                    <constraint firstItem="CY1-RI-Vse" firstAttribute="leading" secondItem="bEZ-dU-JSV" secondAttribute="trailing" constant="1" id="doU-0U-c2c"/>
                     <constraint firstItem="nNO-cR-aY0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="usm-3O-VP5"/>
                     <constraint firstItem="Ry6-ea-8E3" firstAttribute="top" secondItem="nNO-cR-aY0" secondAttribute="bottom" constant="1" id="y1d-ev-DbI"/>
+                    <constraint firstItem="bEZ-dU-JSV" firstAttribute="leading" secondItem="nNO-cR-aY0" secondAttribute="trailing" constant="4" id="yZK-cq-7Gr"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -78,11 +73,5 @@
             </connections>
             <point key="canvasLocation" x="52.799999999999997" y="48.575712143928037"/>
         </tableViewCell>
-        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="at1-fI-ePj">
-            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <state key="normal" title="Button"/>
-            <point key="canvasLocation" x="131" y="144"/>
-        </button>
     </objects>
 </document>
