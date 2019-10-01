@@ -98,6 +98,27 @@ class ToDoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         //何行か行数を返すメソッド
+        
+        if let section = Sections(rawValue: section) {
+            
+            switch section {
+            case .explanation:
+                return sectionCell.count
+            case .todoList:
+                if self.allToDo.count == 0 {
+                    return 1
+                    
+                } else {
+                    return allToDo.count
+                }
+            }
+        }
+        return 0
+    }
+        
+        
+        
+        
 
 //        switch Sections(rawValue: section) {
 //        case .some(.explanation):
@@ -119,22 +140,22 @@ class ToDoTableViewController: UITableViewController {
 //    }
         
       
-        if section == 0 {
-            return sectionCell.count
-
-        } else if section == 1 {
-            if self.allToDo.count == 0 {
-                return 1
-
-            } else {
-                return allToDo.count
-
-            }
-
-        }
-        return allToDo.count
-        // 何も投稿されていない時の表示Cellを出すためにretarun1をしてる
-    }
+//        if section == 0 {
+//            return sectionCell.count
+//
+//        } else if section == 1 {
+//            if self.allToDo.count == 0 {
+//                return 1
+//
+//            } else {
+//                return allToDo.count
+//
+//            }
+//
+//        }
+//        return allToDo.count
+//        // 何も投稿されていない時の表示Cellを出すためにretarun1をしてる
+//    }
     
         
     
@@ -147,23 +168,65 @@ class ToDoTableViewController: UITableViewController {
         //リストの行である Cell を作ってそれを返す処理
 
         
-//        let section = Sections(rawValue: indexPath.section)
-//
-//        switch section {
-//        case .explanation:
+        if let section = Sections(rawValue: indexPath.section) {
+
+        switch section {
+        case .explanation:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCell") as! SectionTableViewCell
+            cell.titleLabel.text = "ToDoにはタイトルと詳細説明と終了日を設定することが出来ます"
+
+            return cell
+
+        case .todoList:
+             if self.allToDo.count == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell") as! EmptyTableViewCell
+                cell.titleLabel.text = "何も投稿されていません"
+                return cell
+                // 何も表示されていない時の表示
+
+             } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
+
+                let todo = allToDo[indexPath.row]
+                cell.cellTitleLabel?.text = todo.inTitle
+                cell.cellDetailLabel?.text = todo.inDetail
+                cell.cellCalenderLabel?.text = todo.inCalendar.convertDate()
+
+                return cell
+                
+            }
+            
+            }
+            
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
+        return cell
+        //ここで返さなきゃならない理由がわからない
+        
+    }
+        
+        
+
+                
+//        if indexPath.section == 0 {
 //            let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCell") as! SectionTableViewCell
+//
 //            cell.titleLabel.text = "ToDoにはタイトルと詳細説明と終了日を設定することが出来ます"
 //
 //            return cell
 //
-//        case .todoList:
-//             if self.allToDo.count == 0 {
+//        } else if indexPath.section == 1 {
+//            if self.allToDo.count == 0 {
 //                let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell") as! EmptyTableViewCell
-//                cell.titleLabel.text = "何も投稿されていません"
-//                return cell
-//                // 何も表示されていない時の表示
 //
-//             } else {
+//                cell.titleLabel.text = "何も投稿されていません"
+//
+//                cell.selectionStyle = .none
+//                //選択不可にするため
+//
+//                return cell
+//                    // 何も表示されていない時の表示
+//            } else {
 //                let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
 //
 //                let todo = allToDo[indexPath.row]
@@ -174,51 +237,13 @@ class ToDoTableViewController: UITableViewController {
 //                return cell
 //
 //            }
-//            case .none:
-//            break
 //
 //        }
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
-//        return cell
-//        //ここで返さなきゃならない理由がわからない
 //
-//    }
-        
-
-                
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCell") as! SectionTableViewCell
-
-            cell.titleLabel.text = "ToDoにはタイトルと詳細説明と終了日を設定することが出来ます"
-
-            return cell
-
-        } else if indexPath.section == 1 {
-            if self.allToDo.count == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell") as! EmptyTableViewCell
-
-                cell.titleLabel.text = "何も投稿されていません"
-
-                return cell
-                    // 何も表示されていない時の表示
-            } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
-
-                let todo = allToDo[indexPath.row]
-                cell.cellTitleLabel?.text = todo.inTitle
-                cell.cellDetailLabel?.text = todo.inDetail
-                cell.cellCalenderLabel?.text = todo.inCalendar.convertDate()
-
-                return cell
-
-            }
-
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
-
-        return cell
-
-            }
+//        return cell
+//
+//            }
         
         
         
