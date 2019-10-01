@@ -166,47 +166,84 @@ class ToDoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //実際に[todos]のデータをリストに表示するメソッド
         //リストの行である Cell を作ってそれを返す処理
-
         
-        if let section = Sections(rawValue: indexPath.section) {
-
-        switch section {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell") as! EmptyTableViewCell
+    
+        switch Sections(rawValue: indexPath.section) {
         case .explanation:
             let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCell") as! SectionTableViewCell
             cell.titleLabel.text = "ToDoにはタイトルと詳細説明と終了日を設定することが出来ます"
-
             return cell
-
+            
         case .todoList:
-             if self.allToDo.count == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell") as! EmptyTableViewCell
-                cell.titleLabel.text = "何も投稿されていません"
-                return cell
-                // 何も表示されていない時の表示
-
-             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
-
-                let todo = allToDo[indexPath.row]
-                cell.cellTitleLabel?.text = todo.inTitle
-                cell.cellDetailLabel?.text = todo.inDetail
-                cell.cellCalenderLabel?.text = todo.inCalendar.convertDate()
-
-                return cell
-                
-            }
-            
-            }
-            
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
+            if self.allToDo.count == 0 {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell") as! EmptyTableViewCell
+            cell.titleLabel.text = "何も投稿されていません"
+        
         return cell
-        //ここで返さなきゃならない理由がわからない
+            // 何も表示されていない時の表示
+            
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
+            
+            let todo = allToDo[indexPath.row]
+            cell.cellTitleLabel?.text = todo.inTitle
+            cell.cellDetailLabel?.text = todo.inDetail
+            cell.cellCalenderLabel?.text = todo.inCalendar.convertDate()
+            
+            return cell
+        }
+            
+        case .none:
+            break
+        
+    }
+        return cell
         
     }
         
         
-
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell") as! EmptyTableViewCell
+//
+//        if let section = Sections(rawValue: indexPath.section) {
+//
+//        switch section {
+//        case .explanation:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCell") as! SectionTableViewCell
+//            cell.titleLabel.text = "ToDoにはタイトルと詳細説明と終了日を設定することが出来ます"
+//
+//            return cell
+//
+//        case .todoList:
+//             if self.allToDo.count == 0 {
+//                let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell") as! EmptyTableViewCell
+//                cell.titleLabel.text = "何も投稿されていません"
+//                return cell
+//                // 何も表示されていない時の表示
+//
+//             } else {
+//                let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ToDoTableViewCell
+//
+//                let todo = allToDo[indexPath.row]
+//                cell.cellTitleLabel?.text = todo.inTitle
+//                cell.cellDetailLabel?.text = todo.inDetail
+//                cell.cellCalenderLabel?.text = todo.inCalendar.convertDate()
+//
+//                return cell
+//
+//            }
+//
+//            }
+//
+//        }
+//        return cell
+//        //ここで返さなきゃならない理由がわからない
+//
+//    }
+        
+        
+        
+        
                 
 //        if indexPath.section == 0 {
 //            let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCell") as! SectionTableViewCell
@@ -248,13 +285,6 @@ class ToDoTableViewController: UITableViewController {
         
         
         
-        
-        
-        
-        
-        
-        
-        
 
 //        if indexPath.section == 0 {
 //            cell.cellTitleLabel?.text = "タイトルを入れます"
@@ -287,6 +317,8 @@ class ToDoTableViewController: UITableViewController {
         return true
     }
     */
+    
+    
 
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
